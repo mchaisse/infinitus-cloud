@@ -1,0 +1,17 @@
+defaults: &defaults
+  app_name: infinitus
+  host: http://localhost:3000
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+  host: <%= ENV['HOSTNAME'] %>
+
+production:
+  <<: *defaults
+  host: <%= ENV['HOSTNAME'] %>
