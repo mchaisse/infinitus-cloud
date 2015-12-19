@@ -30,6 +30,9 @@ staging:
       uri: <%= ENV['REDISCLOUD_URL'] %>
       namespace: 'cache'
       expires_in: 5400 # 90.minutes in seconds
+    rack_cache:
+      metastore: <%= ENV['REDISCLOUD_URL'] %>/metastore
+      entitystore: <%= ENV['REDISCLOUD_URL'] %>/entitystore
     jobs:
       uri: <%= ENV['REDIS_URL'] %>
 
@@ -41,5 +44,8 @@ production:
       uri: <%= ENV['REDISCLOUD_URL'] %>
       namespace: 'cache'
       expires_in: 5400 # 90.minutes in seconds
+    rack_cache:
+      metastore: <%= ENV['REDISCLOUD_URL'] %>/metastore
+      entitystore: <%= ENV['REDISCLOUD_URL'] %>/entitystore
     jobs:
       uri: <%= ENV['REDIS_URL'] %>
