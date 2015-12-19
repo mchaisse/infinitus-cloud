@@ -40,6 +40,12 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # Redis cache
+  config.cache_store = :redis_store, APP_CONFIG['redis']['cache']['uri'], {
+    namespace:  APP_CONFIG['redis']['cache']['namespace'],
+    expires_in: APP_CONFIG['redis']['cache']['expires_in']
+  }
+
   # Configure some gems after app initialization
   config.after_initialize do
     # Bullet configuration

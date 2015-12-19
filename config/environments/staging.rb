@@ -55,8 +55,11 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
-  # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  # Redis cache
+  config.cache_store = :redis_store, APP_CONFIG['redis']['cache']['uri'], {
+    namespace:  APP_CONFIG['redis']['cache']['namespace'],
+    expires_in: APP_CONFIG['redis']['cache']['expires_in']
+  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'

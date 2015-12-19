@@ -38,6 +38,12 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # Redis cache
+  config.cache_store = :redis_store, APP_CONFIG['redis']['cache']['uri'], {
+    namespace:  APP_CONFIG['redis']['cache']['namespace'],
+    expires_in: APP_CONFIG['redis']['cache']['expires_in']
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
