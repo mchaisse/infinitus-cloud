@@ -26,6 +26,11 @@ gem 'jbuilder', '~> 2.0'
 # Provides a full set of stores (Cache, Session, HTTP Cache)
 gem 'redis-rails' # not tagged in https://github.com/redis-store/redis-rails
 
+# Job background processing
+gem 'sidekiq', '~> 4.0.1'
+# Monitoring interface
+gem 'sinatra', require: nil
+
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
 

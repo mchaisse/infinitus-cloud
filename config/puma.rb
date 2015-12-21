@@ -15,8 +15,5 @@ on_worker_boot do
   # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
   ActiveRecord::Base.establish_connection
 
-  # Reconnect to Redis
-  # if defined?(Resque)
-  #    Resque.redis = ENV["<redis-uri>"] || "redis://127.0.0.1:6379"
-  # end
+  # Sidekiq doesn't create connections until you try to do something
 end
