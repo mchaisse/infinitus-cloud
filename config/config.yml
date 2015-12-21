@@ -14,7 +14,14 @@ development:
       key: '_infinitus_session'
       expires_in: 5400 # 90.minutes in seconds
     jobs:
-      uri: 'redis://localhost:6379/3'
+      client:
+        size: 2
+        url: 'redis://localhost:6379/3'
+        namespace: 'jobs'
+      server:
+        size: 18
+        url: 'redis://localhost:6379/3'
+        namespace: 'jobs'
 
 test:
   <<: *defaults
@@ -24,7 +31,14 @@ test:
       namespace: 'cache'
       expires_in: 5400 # 90.minutes in seconds
     jobs:
-      uri: 'redis://localhost:6379/6'
+      client:
+        size: 1
+        url: 'redis://localhost:6379/6'
+        namespace: 'jobs'
+      server:
+        size: 2
+        url: 'redis://localhost:6379/6'
+        namespace: 'jobs'
 
 staging:
   <<: *defaults
@@ -42,7 +56,14 @@ staging:
       key: '_infinitus_session'
       expires_in: 5400 # 90.minutes in seconds
     jobs:
-      uri: <%= ENV['REDIS_URL'] %>
+      client:
+        size: 2
+        url: <%= ENV['REDIS_URL'] %>
+        namespace: 'jobs'
+      server:
+        size: 18
+        url: <%= ENV['REDIS_URL'] %>
+        namespace: 'jobs'
 
 production:
   <<: *defaults
@@ -60,4 +81,11 @@ production:
       key: '_infinitus_session'
       expires_in: 5400 # 90.minutes in seconds
     jobs:
-      uri: <%= ENV['REDIS_URL'] %>
+      client:
+        size: 2
+        url: <%= ENV['REDIS_URL'] %>
+        namespace: 'jobs'
+      server:
+        size: 18
+        url: <%= ENV['REDIS_URL'] %>
+        namespace: 'jobs'

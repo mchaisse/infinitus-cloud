@@ -1,0 +1,8 @@
+---
+:concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] || 25 %>
+:pidfile: tmp/pids/sidekiq.pid
+:queues:
+  - high
+  - default
+  - mailer
+  - low
