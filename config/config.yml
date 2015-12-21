@@ -9,6 +9,10 @@ development:
       uri: 'redis://localhost:6379/1'
       namespace: 'cache'
       expires_in: 5400 # 90.minutes in seconds
+    session:
+      uri: 'redis://localhost:6379/2'
+      key: '_infinitus_session'
+      expires_in: 5400 # 90.minutes in seconds
     jobs:
       uri: 'redis://localhost:6379/3'
 
@@ -33,6 +37,10 @@ staging:
     rack_cache:
       metastore: <%= ENV['REDISCLOUD_URL'] %>/metastore
       entitystore: <%= ENV['REDISCLOUD_URL'] %>/entitystore
+    session:
+      uri: <%= ENV['REDISTOGO_URL'] %>
+      key: '_infinitus_session'
+      expires_in: 5400 # 90.minutes in seconds
     jobs:
       uri: <%= ENV['REDIS_URL'] %>
 
@@ -47,5 +55,9 @@ production:
     rack_cache:
       metastore: <%= ENV['REDISCLOUD_URL'] %>/metastore
       entitystore: <%= ENV['REDISCLOUD_URL'] %>/entitystore
+    session:
+      uri: <%= ENV['REDISTOGO_URL'] %>
+      key: '_infinitus_session'
+      expires_in: 5400 # 90.minutes in seconds
     jobs:
       uri: <%= ENV['REDIS_URL'] %>
