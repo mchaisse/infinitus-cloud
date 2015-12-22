@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 
 # Provides a full set of stores (Cache, Session, HTTP Cache)
 gem 'redis-rails' # not tagged in https://github.com/redis-store/redis-rails
+gem 'redis-rack-cache' # fix rack-cache initialization
 
 # Job background processing
 gem 'sidekiq', '~> 4.0.1'
