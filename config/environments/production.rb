@@ -68,7 +68,7 @@ Rails.application.configure do
     metastore:   APP_CONFIG['redis']['rack_cache']['metastore'],
     entitystore: APP_CONFIG['redis']['rack_cache']['entitystore']
   }
-  config.static_cache_control = "public, max-age=2592000"
+  config.static_cache_control = 'public, max-age=2592000'
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'

@@ -52,7 +52,7 @@ Rails.application.configure do
   # Redis cache
   config.cache_store = :redis_store, APP_CONFIG['redis']['cache']['uri'], {
     namespace:  APP_CONFIG['redis']['cache']['namespace'],
-    expires_in: APP_CONFIG['redis']['cache']['expires_in']
+    expires_in: APP_CONFIG['redis']['cache']['expires_in'],
     pool_size:  5
   }
 
