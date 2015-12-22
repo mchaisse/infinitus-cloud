@@ -31,6 +31,9 @@ gem 'sidekiq', '~> 4.0.1'
 # Monitoring interface
 gem 'sinatra', require: nil
 
+# NewRelic monitoring
+gem 'newrelic_rpm'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0', group: :doc
 
